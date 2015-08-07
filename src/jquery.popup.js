@@ -18,6 +18,8 @@
 			defaults = {
 				html: '',
 				css: '',
+				height: '',
+				width: '',
 				timer: false
 			};
 
@@ -50,10 +52,19 @@
 					href: this.settings.css
 				}).appendTo('head');
 			}
-			$.get(this.settings.html).then(function(data) {
-				$('body').append(data);
+			if(this.settings.html === '') {
+				console.log('Need a path to html');
+				return;
+			}
+			var self = this;
+			$.get(this.settings.html).then(function(html) {
+				var bg = $('<div />', {class: 'ipopbk'}),
+						pop = $('<div />', {class: 'interruptorpop'})
+								.css({'max-height': self.settings.height, 'max-width': self.settings.width})
+								.append(html)
+								.append($('<a />', {class: 'x-closer', html: '&#215;'}));
+				$('body').append(bg).append(pop);
 			});
-			console.log('xD');
 		},
 		yourOtherFunction: function () {
 			// some logic
