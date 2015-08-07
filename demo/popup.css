@@ -1,0 +1,160 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+.interruptorpop { font-size: .75rem; }
+.interruptorpop .x-submit, .interruptorpop .x-nothanks {
+	position: relative;
+	background-color: #ffd51e;
+	border: 0;
+	width: 175px;
+	line-height: 70px;
+	color: #222222;
+	font-size: 2em;
+	font-weight: 300;
+	margin-right: 45px;
+	margin-bottom: .5em;
+	padding: 0;
+	display: inline-block;
+}
+.ipopbk {
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9998;
+	-webkit-transform: translateZ(0);
+}
+.lt-ie9 .ipopbk {
+	background: #000000;
+	filter: "alpha(opacity=60)";
+	-ms-filter: "alpha(opacity=60)";
+	opacity: 0.6;
+}
+.lt-ie9 .interruptorpop {
+	height: 310px;
+	width: 580px;
+}
+.interruptorpop {
+	width: 90%;
+	background-color: #004e96;
+	max-width: 580px;
+	height: 100%;
+	max-height: 500px;
+	color: #ffffff;
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	border: 10px solid #343434;
+	-webkit-transform: translateZ(0);
+	/*display: none;*/
+	z-index: 9999;
+}
+.interruptorpop-header-graphic {
+	width: 100%;
+	max-width: 560px;
+	/*height: 190px;*/
+	padding-bottom: 33.92857142857143%;
+	background: url(http://s7d5.scene7.com/is/image/horizonhobby/promo/popup_box_0.jpg) no-repeat scroll center transparent;
+	background-size: contain;
+}
+.interruptorpop form {
+	padding: 2em;
+	/*background: url(http://s7d5.scene7.com/is/image/horizonhobby/promo/popup_box_0_bg.jpg) repeat scroll center transparent;*/
+}
+.interruptorpop h3, .interruptorpop hr {
+	line-height: 1;
+	margin: 0 0 10px 0;
+	color: #ffffff;
+}
+.interruptorpop label {
+	color: #ffffff;
+	display: inline-block;
+	font-weight: bold;
+	padding: 0;
+	margin: 0 10px 4px 0;
+	font-size: 1em;
+}
+.interruptorpop .checkbox {
+	margin: 0 6px;
+}
+.interruptorpop .fb-email {
+	margin: 0 0 10px 0;
+	height: auto;
+	padding: 10px;
+	width: 100%;
+	font-size: 1.2em;
+}
+.interruptorpop .fb-email.bad-email {
+	box-shadow: inset 0 0 5px 1px rgba(255, 0, 0, 0.5);
+}
+.interruptorpop .x-button-group {
+	margin: 10px auto 0;
+	text-align: center;
+}
+.interruptorpop .x-submit:after {
+	content: " ";
+	position: absolute;
+	right: -35px;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 35px 0 35px 35px;
+	border-color: transparent transparent transparent #ffd61e;
+}
+.interruptorpop .x-submit:hover {
+	background-color: #ffffff;
+}
+.interruptorpop .x-submit:hover:after {
+	border-color: transparent transparent transparent #ffffff;
+}
+.interruptorpop .x-nothanks {
+	background-color: #ffffff;
+	color: #222222;
+}
+.interruptorpop .x-nothanks:after {
+	content: " ";
+	position: absolute;
+	right: -35px;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 35px 0 35px 35px;
+	border-color: transparent transparent transparent #ffffff;
+}
+.interruptorpop .x-nothanks:hover {
+	background-color: #ffd51e;
+}
+.interruptorpop .x-nothanks:hover:after {
+	border-color: transparent transparent transparent #ffd51e;
+}
+.interruptorpop .x-closer {
+	position: absolute;
+	top: -22px;
+	right: -22px;
+	height: 44px;
+	width: 44px;
+	border-radius: 22px;
+	border: 4px solid #343434;
+	background-color: #979797;
+	color: #494949;
+	font-family: Arial, sans-serif;
+	font-size: 44px;
+	font-weight: bold;
+	line-height: 0.9;
+	text-align: center;
+	cursor: pointer;
+}
+.interruptorpop .x-closer:hover {
+	color: #ffffff;
+}
