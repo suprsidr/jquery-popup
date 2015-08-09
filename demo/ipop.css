@@ -5,8 +5,8 @@ html {
 	box-sizing: inherit;
 }
 /*************************** Required ************************/
-/** Feel free to change styles like color and font sizes, but the elements get created automatically **/
-.interruptorpop { font-size: .75rem; } /* base font size */
+/** Feel free to change styles like height, width, color and font sizes, but the elements get created automatically **/
+.ipop { font-size: .75rem; } /* base font size */
 
 .ipopbk {
 	background-color: rgba(0, 0, 0, 0.6);
@@ -19,10 +19,9 @@ html {
 	z-index: 9998;
 	-webkit-transform: translateZ(0);
 }
-.interruptorpop {
+.ipop {
 	width: 100%;
 	height: 100%;
-	z-index: 999;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -30,10 +29,10 @@ html {
 	left: 0;
 	margin: auto;
 	-webkit-transform: translateZ(0);
-	/*display: none;*/
+	display: none;
 	z-index: 9999;
 }
-.interruptorpop .x-closer {
+.ipop .x-closer {
 	position: absolute;
 	top: -30px;
 	right: -30px;
@@ -50,7 +49,7 @@ html {
 	text-align: center;
 	cursor: pointer;
 }
-.interruptorpop .x-closer:hover {
+.ipop .x-closer:hover {
 	color: #999;
 }
 /* moldy browsers */
@@ -61,12 +60,12 @@ html {
 	opacity: 0.6;
 }
 /****************** End Required **********************/
-.interruptorpop {
+.ipop {
 	color: #ffffff;
 	background-color: #004e96;
 	border: 10px solid #343434;
 }
-.interruptorpop .x-submit, .interruptorpop .x-nothanks {
+.ipop .x-submit, .ipop .x-nothanks {
 	position: relative;
 	background-color: #ffd51e;
 	border: 0;
@@ -80,24 +79,22 @@ html {
 	padding: 0;
 	display: inline-block;
 }
-.interruptorpop-header-graphic {
+.ipop-header-graphic {
 	width: 100%;
 	max-width: 560px;
-	/*height: 190px;*/
 	padding-bottom: 33.92857142857143%;
 	background: url(http://s7d5.scene7.com/is/image/horizonhobby/promo/popup_box_0.jpg) no-repeat scroll center transparent;
 	background-size: contain;
 }
-.interruptorpop form {
+.ipop form {
 	padding: 2em;
-	/*background: url(http://s7d5.scene7.com/is/image/horizonhobby/promo/popup_box_0_bg.jpg) repeat scroll center transparent;*/
 }
-.interruptorpop h3, .interruptorpop hr {
+.ipop h3, .ipop hr {
 	line-height: 1;
 	margin: 0 0 10px 0;
 	color: #ffffff;
 }
-.interruptorpop label {
+.ipop label {
 	color: #ffffff;
 	display: inline-block;
 	font-weight: bold;
@@ -105,24 +102,24 @@ html {
 	margin: 0 10px 4px 0;
 	font-size: 1em;
 }
-.interruptorpop .checkbox {
+.ipop .checkbox {
 	margin: 0 6px;
 }
-.interruptorpop .fb-email {
+.ipop .fb-email {
 	margin: 0 0 10px 0;
 	height: auto;
 	padding: 10px;
 	width: 100%;
 	font-size: 1.2em;
 }
-.interruptorpop .fb-email.bad-email {
-	box-shadow: inset 0 0 5px 1px rgba(255, 0, 0, 0.5);
+.ipop .invalid {
+	box-shadow: 0 0 5px 1px rgba(255, 0, 0, 1);
 }
-.interruptorpop .x-button-group {
+.ipop .x-button-group {
 	margin: 10px auto 0;
 	text-align: center;
 }
-.interruptorpop .x-submit:after {
+.ipop .x-submit:after {
 	content: " ";
 	position: absolute;
 	right: -35px;
@@ -133,17 +130,17 @@ html {
 	border-width: 35px 0 35px 35px;
 	border-color: transparent transparent transparent #ffd61e;
 }
-.interruptorpop .x-submit:hover {
+.ipop .x-submit:hover {
 	background-color: #ffffff;
 }
-.interruptorpop .x-submit:hover:after {
+.ipop .x-submit:hover:after {
 	border-color: transparent transparent transparent #ffffff;
 }
-.interruptorpop .x-nothanks {
+.ipop .x-nothanks {
 	background-color: #ffffff;
 	color: #222222;
 }
-.interruptorpop .x-nothanks:after {
+.ipop .x-nothanks:after {
 	content: " ";
 	position: absolute;
 	right: -35px;
@@ -154,9 +151,9 @@ html {
 	border-width: 35px 0 35px 35px;
 	border-color: transparent transparent transparent #ffffff;
 }
-.interruptorpop .x-nothanks:hover {
+.ipop .x-nothanks:hover {
 	background-color: #ffd51e;
 }
-.interruptorpop .x-nothanks:hover:after {
+.ipop .x-nothanks:hover:after {
 	border-color: transparent transparent transparent #ffd51e;
 }

@@ -23,14 +23,14 @@ module.exports = function(grunt) {
 				banner: "<%= meta.banner %>"
 			},
 			dist: {
-				src: ["src/jquery.popup.js"],
-				dest: "dist/jquery.popup.js"
+				src: ["src/jquery.ipop.js"],
+				dest: "dist/jquery.ipop.js"
 			}
 		},
 
 		// Lint definitions
 		jshint: {
-			files: ["src/jquery.popup.js"],
+			files: ["src/jquery.ipop.js"],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -39,8 +39,8 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["dist/jquery.popup.js"],
-				dest: "dist/jquery.popup.min.js"
+				src: ["dist/jquery.ipop.js"],
+				dest: "dist/jquery.ipop.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
