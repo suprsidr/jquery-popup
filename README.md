@@ -47,7 +47,10 @@ I tried to think of all the common situations we use our interrupters for and ma
       '.ipopbk': 'dismiss' // default dismiss - sets a short term cookie -> dismisses the popup
     }
   };
-	```
+
+  ```
+
+
 ## Builtin callbacks
 
   * dismiss - sets a short term cookie -> dismisses the popup
