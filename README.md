@@ -60,7 +60,7 @@ I tried to think of all the common situations we use our interrupters for and ma
 
 
 ## Built with
-  [jqueryboilerplate](https://github.com/jquery-boilerplate/jquery-boilerplate)
+  [jQuery Boilerplate](https://github.com/jquery-boilerplate/jquery-boilerplate)
   Thanks guys!
 
 ## License
