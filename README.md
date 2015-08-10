@@ -25,24 +25,26 @@ I tried to think of all the common situations we use our interrupters for and ma
 ## Options
 
   ```javascript
-	ipopbk: 'ipopbk', // class applied to background shade
-  ipop: 'ipop', // class applied to popup
-  closer: 'x-closer', // class applied to closer button
-  html: '', // path to html
-  css: '', // path to css
-  height: '400px', // max-height
-  width: '400px', // max-width
-  delay: 1000, // delay in milliseconds
-  page: 1, // which page view do we show on -- not yet implemented
-  timer: false, // auto start/stop requires timerStart & timerEnd
-  timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start requires timer: true
-  timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop requires timer: true
-  ltc: 'formSubmitted', // long term cookie name
-  stc: 'formDismissed', // short term cookie name
-  callbacks: { // onclick callback functions
-    '.x-submit': 'submit', // default submit - validates form -> sets a long term cookie -> submits form
-    '.x-closer': 'dismiss', // default dismiss - sets a short term cookie -> dismisses the popup
-    '.x-nothanks': 'longTermDismiss', // default longTermDismiss - sets a long term cookie -> dismisses the popup
-    '.ipopbk': 'dismiss' // default dismiss - sets a short term cookie -> dismisses the popup
-  }
+  defaults = {
+    ipopbk: 'ipopbk', // class applied to background shade
+    ipop: 'ipop', // class applied to popup
+    closer: 'x-closer', // class applied to closer button
+    html: '', // path to html
+    css: '', // path to css
+    height: '400px', // max-height
+    width: '400px', // max-width
+    delay: 1000, // delay in milliseconds
+    page: 1, // which page view do we show on -- not yet implemented
+    timer: false, // auto start/stop requires timerStart & timerEnd
+    timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start requires timer: true
+    timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop requires timer: true
+    ltc: 'formSubmitted', // long term cookie name
+    stc: 'formDismissed', // short term cookie name
+    callbacks: { // onclick callback functions
+      '.x-submit': 'submit', // default submit - validates form -> sets a long term cookie -> submits form
+      '.x-closer': 'dismiss', // default dismiss - sets a short term cookie -> dismisses the popup
+      '.x-nothanks': 'longTermDismiss', // default longTermDismiss - sets a long term cookie -> dismisses the popup
+      '.ipopbk': 'dismiss' // default dismiss - sets a short term cookie -> dismisses the popup
+    }
+  };
 	```
