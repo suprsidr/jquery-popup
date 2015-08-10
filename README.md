@@ -48,3 +48,9 @@ I tried to think of all the common situations we use our interrupters for and ma
     }
   };
 	```
+## Builtin callbacks
+
+* dismiss - sets a short term cookie -> dismisses the popup
+* submit - validates form -> sets a long term cookie -> submits form
+* longTermDismiss - sets a long term cookie -> dismisses the popup
+* gotoLink - sets a short term cookie -> navigates to element's href value
