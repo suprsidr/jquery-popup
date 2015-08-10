@@ -12,22 +12,18 @@
       css: '',
       height: '',
       width: '',
-      delay: 1, // delay in milliseconds
+      delay: 1000, // delay in milliseconds
       page: 1, // which page view do we show on
       timer: false, // auto start/stop
-      timerStart: null, // date/time to start
-      timerStop: null, // date/time to stop
+      timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start
+      timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop
       ltc: 'formSubmitted', // long term cookie name
       stc: 'formDismissed', // short term cookie name
-      triggers: {
+      callbacks: {
         '.x-submit': 'submit',
         '.x-closer': 'dismiss',
-        '.x-nothanks': 'gotoLink',
-        '.ipopbk': function (e) {
-          e.preventDefault();
-          $('body').css({'background-color': 'red'});
-          setTimeout(e.data.dismiss, 5000, e); // plugin context gets passed to event.data
-        }
+        '.x-nothanks': 'longTermDismiss',
+        '.ipopbk': 'dismiss'
       }
     };
 
@@ -36,11 +32,20 @@
     this.settings = $.extend({}, defaults, options);
     this._defaults = defaults;
     this._name = pluginName;
-    this.init();
+    if(this.settings.timer) {
+      if(this.getTime(this.settings.timerStart) < 0 && this.getTime(this.settings.timerEnd) > 0) {
+        this.init();
+      }  else {
+        return;
+      }
+    } else {
+      this.init();
+    }
   }
 
   $.extend(Plugin.prototype, {
     init: function () {
+
       if (this.settings.html === '' || this.settings.css === '') {
         console.log('Need a path to both html and css');
         return;
@@ -68,6 +73,15 @@
     dismiss: function (e) {
       e.preventDefault();
       e.data.setShortTermCookie();
+      $.each([e.data.ipopbk, e.data.ipop], function () {
+        $(this).fadeOut('fast', function () {
+          $(this).remove();
+        });
+      });
+    },
+    longTermDismiss: function (e) {
+      e.preventDefault();
+      e.data.setLongTermCookie();
       $.each([e.data.ipopbk, e.data.ipop], function () {
         $(this).fadeOut('fast', function () {
           $(this).remove();
@@ -113,7 +127,7 @@
         $(self.element).append(ipopbk).append(ipop);
         $(ipop).fadeIn('slow');
       }).then(function () {
-        $.each(self.settings.triggers, function (k, v) {
+        $.each(self.settings.callbacks, function (k, v) {
           // plugin context gets passed to event.data
           if (typeof v === 'function') {
             $(k).on('click', self, v);
@@ -125,8 +139,7 @@
       });
     },
     getTime: function (date) {
-      var time = new Date(date),
-        now = new Date();
+      var time = new Date(date), now = new Date();
       return (Date.parse(time) / 1000) - (Date.parse(now) / 1000);
     }
   });
