@@ -4,28 +4,28 @@
 
   // Create the defaults once
   var pluginName = 'jqueryPopup',
-    defaults = {
-      ipopbk: 'ipopbk',
-      ipop: 'ipop',
-      closer: 'x-closer',
-      html: '',
-      css: '',
-      height: '',
-      width: '',
-      delay: 1000, // delay in milliseconds
-      page: 1, // which page view do we show on
-      timer: false, // auto start/stop
-      timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start
-      timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop
-      ltc: 'formSubmitted', // long term cookie name
-      stc: 'formDismissed', // short term cookie name
-      callbacks: {
-        '.x-submit': 'submit',
-        '.x-closer': 'dismiss',
-        '.x-nothanks': 'longTermDismiss',
-        '.ipopbk': 'dismiss'
-      }
-    };
+      defaults = {
+        ipopbk: 'ipopbk',
+        ipop: 'ipop',
+        closer: 'x-closer',
+        html: '',
+        css: '',
+        height: '',
+        width: '',
+        delay: 1000, // delay in milliseconds
+        page: 1, // which page view do we show on
+        timer: false, // auto start/stop
+        timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start
+        timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop
+        ltc: 'formSubmitted', // long term cookie name
+        stc: 'formDismissed', // short term cookie name
+        callbacks: {
+          '.x-submit': 'submit',
+          '.x-closer': 'dismiss',
+          '.x-nothanks': 'longTermDismiss',
+          '.ipopbk': 'dismiss'
+        }
+      };
 
   function Plugin(element, options) {
     this.element = element;
