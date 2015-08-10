@@ -123,6 +123,11 @@
 					}
 				});
 			});
+		},
+		getTime: function(date) {
+			var time = new Date(date),
+					now = new Date();
+			return (Date.parse(time) / 1000) - (Date.parse(now) / 1000);
 		}
 	});
 
