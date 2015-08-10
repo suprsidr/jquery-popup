@@ -1,5 +1,4 @@
-;
-(function ($, window, document, undefined) {
+;(function ($, window, document, undefined) {
 
   'use strict';
 
@@ -143,54 +142,5 @@
 })(jQuery, window, document);
 
 /* jshint ignore:start */
-!function (e) {
-  e(jQuery)
-}(function (e) {
-  function n(e) {
-    return u.raw ? e : encodeURIComponent(e)
-  }
-
-  function o(e) {
-    return u.raw ? e : decodeURIComponent(e)
-  }
-
-  function i(e) {
-    return n(u.json ? JSON.stringify(e) : String(e))
-  }
-
-  function r(e) {
-    0 === e.indexOf('"') && (e = e.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, "\\"));
-    try {
-      return e = decodeURIComponent(e.replace(c, " ")), u.json ? JSON.parse(e) : e
-    } catch (n) {
-    }
-  }
-
-  function t(n, o) {
-    var i = u.raw ? n : r(n);
-    return e.isFunction(o) ? o(i) : i
-  }
-
-  var c = /\+/g, u = e.cookie = function (r, c, a) {
-    if (arguments.length > 1 && !e.isFunction(c)) {
-      if (a = e.extend({}, u.defaults, a), "number" == typeof a.expires) {
-        var s = a.expires, p = a.expires = new Date;
-        p.setTime(+p + 864e5 * s)
-      }
-      return document.cookie = [n(r), "=", i(c), a.expires ? "; expires=" + a.expires.toUTCString() : "", a.path ? "; path=" + a.path : "", a.domain ? "; domain=" + a.domain : "", a.secure ? "; secure" : ""].join("")
-    }
-    for (var d = r ? void 0 : {}, f = document.cookie ? document.cookie.split("; ") : [], m = 0, l = f.length; l > m; m++) {
-      var x = f[m].split("="), g = o(x.shift()), k = x.join("=");
-      if (r && r === g) {
-        d = t(k, c);
-        break
-      }
-      r || void 0 === (k = t(k)) || (d[g] = k)
-    }
-    return d
-  };
-  u.defaults = {}, e.removeCookie = function (n, o) {
-    return void 0 === e.cookie(n) ? !1 : (e.cookie(n, "", e.extend({}, o, {expires: -1})), !e.cookie(n))
-  }
-});
+!function (e) { e(jQuery) } (function (e) { function n(e) { return u.raw ? e : encodeURIComponent(e) } function o(e) { return u.raw ? e : decodeURIComponent(e) } function i(e) { return n(u.json ? JSON.stringify(e) : String(e)) } function r(e) { 0 === e.indexOf('"') && (e = e.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, "\\")); try { return e = decodeURIComponent(e.replace(c, " ")), u.json ? JSON.parse(e) : e } catch (n) { } } function t(n, o) { var i = u.raw ? n : r(n); return e.isFunction(o) ? o(i) : i } var c = /\+/g, u = e.cookie = function (r, c, a) { if (arguments.length > 1 && !e.isFunction(c)) { if (a = e.extend({}, u.defaults, a), "number" == typeof a.expires) { var s = a.expires, p = a.expires = new Date; p.setTime(+p + 864e5 * s) } return document.cookie = [n(r), "=", i(c), a.expires ? "; expires=" + a.expires.toUTCString() : "", a.path ? "; path=" + a.path : "", a.domain ? "; domain=" + a.domain : "", a.secure ? "; secure" : ""].join("") } for (var d = r ? void 0 : {}, f = document.cookie ? document.cookie.split("; ") : [], m = 0, l = f.length; l > m; m++) { var x = f[m].split("="), g = o(x.shift()), k = x.join("="); if (r && r === g) { d = t(k, c); break } r || void 0 === (k = t(k)) || (d[g] = k) } return d }; u.defaults = {}, e.removeCookie = function (n, o) { return void 0 === e.cookie(n) ? !1 : (e.cookie(n, "", e.extend({}, o, { expires: -1 })), !e.cookie(n)) } });
 /* jshint ignore:end */
