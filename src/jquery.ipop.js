@@ -42,11 +42,11 @@
 				console.log('Need a path to both html and css');
 				return;
 			}
-			var interrupterActive = ('https:' === document.location.protocol) ? false : true;
+			var interrupterActive = ('https:' === document.location.protocol) ? false : true, self = this;
 			if(interrupterActive && !this.getShortTermCookie() && !this.getLongTermCookie()) {
 				this.setStyles();
 				setTimeout(function () {
-					this.setHtml();
+					self.setHtml();
 				}, this.settings.delay);
 			}
 		},
@@ -111,7 +111,6 @@
 					if(typeof self[v] === 'function') {
 						$(k).on('click', self, self[v]);
 					}
-					console.log(typeof v);
 				});
 			});
 		}
