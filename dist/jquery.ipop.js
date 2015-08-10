@@ -1,3 +1,11 @@
+/*
+ *  jquery-popup - v0.1.0
+ *  Popup tool.
+ *  
+ *
+ *  Made by Wayne Patterson
+ *  Under MIT License
+ */
 ;(function ($, window, document, undefined) {
 
   'use strict';

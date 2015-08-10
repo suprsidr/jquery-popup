@@ -9,12 +9,15 @@
 		<script>
 			$(function() {
 				$('body').jqueryPopup({
-					html: 'ipop.html',
-					css: 'ipop.css',
-					height: '500px',
-					width: '580px',
+					html: 'ipop.html', // path to html
+					css: 'ipop.css', // path to css
+					height: '500px', // max-height
+					width: '580px', // max-width
           ltc: 'formSubmitted', // long term cookie name
           stc: 'formDismissed', // short term cookie name
+          timer: false, // auto start/stop requires timerStart & timerEnd
+          timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start requires timer: true
+          timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop requires timer: true
           callbacks: {  // onclick callback functions
             '.x-submit': 'submit', // default submit - validates form -> sets a long term cookie -> submits form
             '.x-closer': 'dismiss', // default dismiss - sets a short term cookie -> dismisses the popup
