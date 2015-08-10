@@ -58,6 +58,11 @@ I tried to think of all the common situations we use our interrupters for and ma
   * longTermDismiss - sets a long term cookie -> dismisses the popup
   * gotoLink - sets a short term cookie -> navigates to callee's href value
 
+
+## Built with
+  [jqueryboilerplate](https://github.com/jquery-boilerplate/jquery-boilerplate)
+  Thanks guys!
+
 ## License
 
 [MIT License](http://zenorocha.mit-license.org/) ©Wayne Patterson
