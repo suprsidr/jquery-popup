@@ -5,6 +5,9 @@
 	// Create the defaults once
 	var pluginName = 'jqueryPopup',
 			defaults = {
+				ipopbk: 'ipopbk',
+				ipop: 'ipop',
+				closer: 'x-closer',
 				html: '',
 				css: '',
 				height: '',
@@ -19,12 +22,12 @@
 				triggers: {
 					'.x-submit': 'submit',
 					'.x-closer': 'dismiss',
+					'.x-nothanks': 'gotoLink',
 					'.ipopbk': function(e) {
 						e.preventDefault();
 						$('body').css({'background-color': 'red'});
-						setTimeout(e.data.dismiss, 5000, e);
-					},
-					'.x-nothanks': 'gotoLink'
+						setTimeout(e.data.dismiss, 5000, e); // plugin context gets passed to event.data
+					}
 				}
 			};
 
@@ -42,7 +45,7 @@
 				console.log('Need a path to both html and css');
 				return;
 			}
-			var interrupterActive = ('https:' === document.location.protocol) ? false : true, self = this;
+			var interrupterActive = ('https:'!== document.location.protocol), self = this;
 			if(interrupterActive && !this.getShortTermCookie() && !this.getLongTermCookie()) {
 				this.setStyles();
 				setTimeout(function () {
@@ -65,21 +68,23 @@
 		dismiss: function(e) {
 			e.preventDefault();
 			e.data.setShortTermCookie();
-			$('.ipopbk, .ipop').fadeOut('fast', function () {
-				$('.ipopbk, .ipop').remove();
+			$.each([e.data.ipopbk, e.data.ipop], function() {
+				$(this).fadeOut('fast', function () {
+					$(this).remove();
+				});
 			});
 		},
 		submit: function(e) {
 			e.preventDefault();
-			if($('.ipop form:invalid').length > 0) {
-				$('.ipop form input:invalid').addClass('invalid');
-				$('.ipop form input:invalid').first().get(0).focus();
+			if($(e.data.ipop + ' form:invalid').length > 0) {
+				$(e.data.ipop + ' form input:invalid').addClass('invalid');
+				$(e.data.ipop + ' form input:invalid').first().get(0).focus();
 				console.log('invalid');
 			} else {
 				e.data.setLongTermCookie();
 				console.log('submitting');
 			}
-			//$('.ipop form').get(0).submit();
+			//$(e.data.ipop + ' form').get(0).submit();
 		},
 		gotoLink: function(e) {
 			e.preventDefault();
@@ -96,15 +101,20 @@
 		setHtml: function() {
 			var self = this;
 			$.get(this.settings.html).then(function(html) {
-				var bg = $('<div />', {class: 'ipopbk'}),
-						pop = $('<div />', {class: 'ipop'})
+				var ipopbk = $('<div />', {class: self.settings.ipopbk}),
+					  closer = $('<a />', {class: self.settings.closer, html: '&#215;'}),
+						ipop = $('<div />', {class: self.settings.ipop})
 								.css({'max-height': self.settings.height, 'max-width': self.settings.width})
 								.append(html)
-								.append($('<a />', {class: 'x-closer', html: '&#215;'}));
-				$('body').append(bg).append(pop);
-				$(pop).fadeIn('slow');
+								.append(closer);
+				self.ipopbk = ipopbk;
+				self.ipop = ipop;
+				self.closer = closer;
+				$(self.element).append(ipopbk).append(ipop);
+				$(ipop).fadeIn('slow');
 			}).then(function() {
 				$.each(self.settings.triggers, function(k, v) {
+					// plugin context gets passed to event.data
 					if(typeof v === 'function') {
 						$(k).on('click', self, v);
 					}
