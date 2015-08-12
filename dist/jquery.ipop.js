@@ -21,12 +21,13 @@
         height: '400px', // max-height
         width: '400px', // max-width
         delay: 1000, // delay in milliseconds
-        page: 1, // which page view do we show on -- not yet implemented
+        page: 1, // which page view do we show on
         timer: false, // auto start/stop requires timerStart & timerEnd
         timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start requires timer: true
         timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop requires timer: true
         ltc: 'formSubmitted', // long term cookie name
         stc: 'formDismissed', // short term cookie name
+        pvc: 'ipoppageviews', // page view cookie name
         callbacks: { // onclick callback functions
           '.x-submit': 'submit', // default submit - validates form -> sets a long term cookie -> submits form
           '.x-closer': 'dismiss', // default dismiss - sets a short term cookie -> dismisses the popup
@@ -40,26 +41,30 @@
     this.settings = $.extend({}, defaults, options);
     this._defaults = defaults;
     this._name = pluginName;
-    if(this.settings.timer) {
-      if(this.getTime(this.settings.timerStart) < 0 && this.getTime(this.settings.timerEnd) > 0) {
+    if (this.settings.html === '' || this.settings.css === '') {
+      console.log('Need a path to both html and css');
+      return;
+    }
+    if('https:' === document.location.protocol){
+      return;
+    }
+    var view = this.getPageViewCookie();
+    this.setPageViewCookie(view);
+    if(view === this.settings.page) {
+      if(this.settings.timer) {
+        if(this.getTime(this.settings.timerStart) < 0 && this.getTime(this.settings.timerEnd) > 0) {
+          this.init();
+        }
+      } else {
         this.init();
-      }  else {
-        return;
       }
-    } else {
-      this.init();
     }
   }
 
   $.extend(Plugin.prototype, {
     init: function () {
-
-      if (this.settings.html === '' || this.settings.css === '') {
-        console.log('Need a path to both html and css');
-        return;
-      }
-      var interrupterActive = ('https:' !== document.location.protocol), self = this;
-      if (interrupterActive && !this.getShortTermCookie() && !this.getLongTermCookie()) {
+      var self = this;
+      if (!this.getShortTermCookie() && !this.getLongTermCookie()) {
         this.setStyles();
         setTimeout(function () {
           self.setHtml();
@@ -77,6 +82,13 @@
     },
     getLongTermCookie: function () {
       return $.cookie(this.settings.ltc);
+    },
+    setPageViewCookie: function (viewCount) {
+      viewCount++;
+      $.cookie(this.settings.pvc, viewCount, {expires: 1, path: '/'});
+    },
+    getPageViewCookie: function () {
+      return parseInt($.cookie(this.settings.pvc)) || 1;
     },
     dismiss: function (e) {
       e.preventDefault();
