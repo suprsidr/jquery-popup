@@ -105,12 +105,12 @@
       if ($(e.data.ipop + ' form:invalid').length > 0) {
         $(e.data.ipop + ' form input:invalid').addClass('invalid');
         $(e.data.ipop + ' form input:invalid').first().get(0).focus();
-        console.log('invalid');
+        //console.log('invalid');
       } else {
         e.data.setLongTermCookie();
-        console.log('submitting');
+        //console.log('submitting');
+        $(e.data.ipop + ' form').get(0).submit();
       }
-      //$(e.data.ipop + ' form').get(0).submit();
     },
     gotoLink: function (e) {
       e.preventDefault();

@@ -4,6 +4,9 @@
 		<title>jQuery Popup</title>
 	</head>
 	<body>
+    <a href="index.html">Page 1</a> | <a href="index2.html">Page2</a> | <a href="index3.html">Page 3</a> |
+    <a href="index4.html">Page 4</a>
+    <h2>Page 1</h2>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="../src/jquery.ipop.js"></script>
 		<script>
@@ -15,6 +18,7 @@
 					width: '580px', // max-width
           ltc: 'formSubmitted', // long term cookie name
           stc: 'formDismissed', // short term cookie name
+          page: 3, // which page view do we show on
           timer: false, // auto start/stop requires timerStart & timerEnd
           timerStart: 'Aug 10, 2015 07:00:00 CDT', // date/time to start requires timer: true
           timerEnd: 'Aug 17, 2015 07:00:00 CDT', // date/time to stop requires timer: true
