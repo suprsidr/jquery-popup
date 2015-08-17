@@ -109,7 +109,7 @@
       } else {
         e.data.setLongTermCookie();
         //console.log('submitting');
-        $(e.data.ipop + ' form').get(0).submit();
+        $(e.data.ipop).find('form').get(0).submit();
       }
     },
     gotoLink: function (e) {
