@@ -101,10 +101,11 @@
       });
     },
     submit: function (e) {
+      console.log(e.data);
       e.preventDefault();
       if ($(e.data.ipop).find('form:invalid').length > 0) {
-        $(e.data.ipop).find('form:invalid').addClass('invalid');
-        $(e.data.ipop).find('form:invalid').first().get(0).focus();
+        $(e.data.ipop).find('form :invalid').addClass('invalid');
+        $(e.data.ipop).find('form :invalid').first().get(0).focus();
         //console.log('invalid');
       } else {
         e.data.setLongTermCookie();
@@ -146,6 +147,13 @@
           }
           if (typeof self[v] === 'function') {
             $(k).on('click', self, self[v]);
+          }
+        });
+        // detect enter key on form
+        $(self.ipop).find('form').on('keyup', self, function (e) {
+          if (parseInt(e.keyCode) === 13) {
+            e.preventDefault();
+            e.data.submit(e);
           }
         });
       });
