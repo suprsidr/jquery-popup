@@ -102,9 +102,9 @@
     },
     submit: function (e) {
       e.preventDefault();
-      if ($(e.data.ipop + ' form:invalid').length > 0) {
-        $(e.data.ipop + ' form input:invalid').addClass('invalid');
-        $(e.data.ipop + ' form input:invalid').first().get(0).focus();
+      if ($(e.data.ipop).find('form:invalid').length > 0) {
+        $(e.data.ipop).find('form:invalid').addClass('invalid');
+        $(e.data.ipop).find('form:invalid').first().get(0).focus();
         //console.log('invalid');
       } else {
         e.data.setLongTermCookie();
