@@ -62,8 +62,8 @@ html {
 /****************** End Required **********************/
 .ipop {
 	color: #ffffff;
-	background-color: #004e96;
-	border: 10px solid #343434;
+	background-color: #363636;
+	border: 10px solid #000;
 }
 .ipop .x-submit, .ipop .x-nothanks {
 	position: relative;
@@ -82,8 +82,8 @@ html {
 .ipop-header-graphic {
 	width: 100%;
 	max-width: 560px;
-	padding-bottom: 33.92857142857143%;
-	background: url(http://s7d5.scene7.com/is/image/horizonhobby/promo/popup_box_0.jpg) no-repeat scroll center transparent;
+	padding-bottom: 45.71428571428571%;
+	background: url(http://s7d5.scene7.com/is/image/horizonhobby/pre%2Dblack%2Dfriday%2Dpopup%2Dbg?$Default$) no-repeat scroll center transparent;
 	background-size: contain;
 }
 .ipop form {
